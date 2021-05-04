@@ -2,10 +2,9 @@
 @import url("https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css");
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue"; font-weight: 500;}
 
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
   }

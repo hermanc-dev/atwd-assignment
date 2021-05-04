@@ -1,13 +1,103 @@
+
 <div class="container">
     <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
       <div class="front">
         <ng-content select="flip-card-front"></ng-content>
+        <h1 style=" font-weight:bold;font-size: 34px;font-family:Hiragino Sans GB, MicroSoft YaHei;  text-align: center; padding-top: 30px;color: rgb(255, 222, 115);
+        ">BUS ROUTE SEARCH</h1>
+        <div class='frontForm'>  
+           <form>
+            <div class="inputBox" style="display: inline-flex; ">
+              <i class="icon ion-ios-menu icon"></i>   
+              <input type="" name="" id="routeId" value="" required="required" autocomplete="off" />
+              <label>Route ID.</label>
+              <div class="bottom-line"></div>
+            </div>
+
+            <div class="inputBox" style="display: inline-flex; ">
+              <i class="icon ion-ios-bus"></i>
+              <input type="" name="" id="busNo" value="" required="required" autocomplete="off"/>
+              <label>Bus No.</label>
+              <div class="bottom-line"></div>
+            </div>
+     
+            <div class="inputBox" style="display: inline-flex; ">
+              <i class="icon ion-md-navigate"></i>   
+              <input type="" name="" id="start" value="" required="required" autocomplete="off"/>
+              <label>Start Location</label>
+              <div class="bottom-line"></div>
+            </div>
+
+            <div class="inputBox" style="display: inline-flex; ">
+              <i class="icon ion-ios-skip-forward"></i>
+                            <input type="" name="" id="stop" value="" required="required" autocomplete="off"/>
+              <label>Stop Location</label>
+              <div class="bottom-line"></div>
+            </div>
+
+            <div class="inputBox" style="display: inline-flex; ">
+              <i class="icon ion-ios-square"></i>   
+              <input type="" name="" id="end" value="" required="required" autocomplete="off"/>
+              <label>End Location</label>
+              <div class="bottom-line"></div>
+            </div>
+
+
+         </form>
+        </div>
+  
         <div class="arrow-icon" (click)="toggle()">
           <i class="ion-ios-search"></i>
         </div>
       </div>
       <div class="back">
         <ng-content select="flip-card-back"></ng-content>
+        <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lax">1</th>
+              <th class="tg-0lax">2</th>
+              <th class="tg-0lax">3</th>
+              <th class="tg-0lax">4</th>
+              <th class="tg-0lax">5</th>
+              <th class="tg-0lax">6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+          </tbody>
+          </table>
         <div class="arrow-icon" (click)="toggle()">
           <i class="ion-ios-arrow-back"></i>
         </div>

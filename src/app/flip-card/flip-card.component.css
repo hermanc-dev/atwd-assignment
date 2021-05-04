@@ -1,18 +1,19 @@
 .container {
-    width: 550px;
-    height: 450px;
+    width: 600px;
+    height: 550px;
     display: block;
     position: absolute;
     perspective: 800px;
     border-radius: 4px;
     margin: auto;
     top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
     border: 0;
+    font-weight: 500;
   }
-  
+
   .card {
     width: 100%;
     height: 100%;
@@ -33,7 +34,7 @@
     border-radius: 6px;
     background-color: #7a7c7ef5;
     color: #fff;
-    display: grid;
+    /* display: grid; */
     place-items: center;
   }
   
@@ -44,22 +45,108 @@
   .flipped {
     transform: rotateY(180deg);
   }
+
+  .flipped .frontForm{
+    display: none;
+  }
   
   .arrow-icon {
+    backface-visibility: hidden;
+
     position: absolute;
     right: 5px;
-    bottom: 5px;
+    bottom: 10px;
     opacity: 1;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 1px solid	rgb(255, 222, 115);
     margin: auto;
-	left: 0;
-	right: 0;
+	  left: 0;
+	  right: 0;
     bottom: 20px;
+    color: rgb(255, 222, 115);
   }
+
+  .frontForm{
+    margin: auto;
+    margin-top:5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom:20px;
+  }
+
+.inputBox {
+	width: 500px;
+	position: relative;
+	margin-top: 40px;
+  backface-visibility: hidden;  
+}
+.inputBox input{
+  backface-visibility: hidden;
+	outline: none;
+	border: none;
+	width: 100%;
+	padding: 0px 0;
+  padding-left: 3px;
+	color: rgb(255, 222, 115);
+	font-size: 16px;
+	border-bottom: 1px solid rgb(158, 158, 158);
+	background: none;
+  transition: all 0.5s;
+}
+.inputBox label{
+  backface-visibility: hidden;
+
+	position: absolute;
+  bottom: 10px;
+	left: 35px;
+	color: rgb(167, 164, 164);
+	font-size: 16px;
+	/*这个属性的默认值是auto 默认是这个元素可以被点击
+	但是如果我们写了none  就是这个元素不能被点击，就好像它可见但是不能用  
+	可望而不可及*/
+	pointer-events: none;
+	/*加个过度*/
+	transition: all 0.3s;
+}
+/*: focus 选择器是当input获得焦点是触发的样式 + 是相邻兄弟选择器
+	去找与input相邻的兄弟label*/
+/*：valid 选择器是判断input 框的内容是否合法，如果合法会执行下面的属性代码，
+	不合法就不会执行，我们刚开始写布局的时候给input框写了required 我们删掉看对比 
+	当没有required的话   input框的值就会被认为一直合法，所以一直都是下方的样式，
+	但是密码不会，密码框的值为空，那么这句话就不合法，required不能为空
+	当我们给密码框写点东西的时候才会执行以下代码
+
+*/
+.inputBox input:focus + label,
+.inputBox input:valid + label{
+	/* font-size: 16px; */
+	bottom: 35px;
+	color: rgb(255, 255, 255);
+  backface-visibility: hidden;
+
+}
+
+
+
+.inputBox input:focus,
+.inputBox input:valid{
+  border-bottom: 1px solid rgb(255, 255, 255);
+	width: 100%;
+  backface-visibility: hidden;
+}
+
+
+.icon{
+  font-size: 35px;
+  margin-right: 10px;
+  color: rgb(255, 222, 115);
+}
+
+
+
