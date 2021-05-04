@@ -5,99 +5,91 @@
         <ng-content select="flip-card-front"></ng-content>
         <h1 style=" font-weight:bold;font-size: 34px;font-family:Hiragino Sans GB, MicroSoft YaHei;  text-align: center; padding-top: 30px;color: rgb(255, 222, 115);
         ">BUS ROUTE SEARCH</h1>
-        <div class='frontForm'>  
-           <form>
-            <div class="inputBox" style="display: inline-flex; ">
+        <div class='frontForm form-group'>  
+          <form [formGroup]="complexForm" (submit)="submitForm(complexForm.value)">
+            <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-menu icon"></i>   
-              <input type="" name="" id="routeId" value="" required="required" autocomplete="off" />
+              <input  formControlName="routeId" type="number" name="" id="routeId" value="" required="required" autocomplete="off" 
+              />
               <label>Route ID.</label>
               <div class="bottom-line"></div>
             </div>
 
-            <div class="inputBox" style="display: inline-flex; ">
+            <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-bus"></i>
-              <input type="" name="" id="busNo" value="" required="required" autocomplete="off"/>
+              <input formControlName="busNo"  type="text" name="" id="busNo" value="" required="required" autocomplete="off"
+              />
               <label>Bus No.</label>
               <div class="bottom-line"></div>
             </div>
      
-            <div class="inputBox" style="display: inline-flex; ">
+            <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-md-navigate"></i>   
-              <input type="" name="" id="start" value="" required="required" autocomplete="off"/>
+              <input formControlName="start" type="text" name="" id="start" value="" required="required" autocomplete="off"
+              />
               <label>Start Location</label>
               <div class="bottom-line"></div>
             </div>
 
-            <div class="inputBox" style="display: inline-flex; ">
+            <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-skip-forward"></i>
-                            <input type="" name="" id="stop" value="" required="required" autocomplete="off"/>
+              <input formControlName="stop" type="text" name="" id="stop" value="" required="required" autocomplete="off"
+              />
               <label>Stop Location</label>
               <div class="bottom-line"></div>
             </div>
 
-            <div class="inputBox" style="display: inline-flex; ">
+            <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-square"></i>   
-              <input type="" name="" id="end" value="" required="required" autocomplete="off"/>
+              <input formControlName="end"  type="text" name="" id="end" value="" required="required" autocomplete="off"
+              />
               <label>End Location</label>
               <div class="bottom-line"></div>
             </div>
+            <div class="arrow-icon" (click)="toggle();submitForm(complexForm.value)">
+              <!-- <div class="arrow-icon" (click)="submitForm(complexForm.value)"> -->
 
-
+              <i class="ion-ios-search"></i>
+            </div>
          </form>
         </div>
-  
-        <div class="arrow-icon" (click)="toggle()">
+
+        <!-- <div class="arrow-icon" (click)="toggle()">
           <i class="ion-ios-search"></i>
-        </div>
+        </div> -->
       </div>
       <div class="back">
         <ng-content select="flip-card-back"></ng-content>
-        <table class="tg">
-          <thead>
+       
+        <div class='routeTable'>
+          <table class='table' border=1>
             <tr>
-              <th class="tg-0lax">1</th>
-              <th class="tg-0lax">2</th>
-              <th class="tg-0lax">3</th>
-              <th class="tg-0lax">4</th>
-              <th class="tg-0lax">5</th>
-              <th class="tg-0lax">6</th>
+              <th>Route</th>
+              <th>Fare</th>
+              <th>Start Point</th>
+              <th>End Point</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-          </tbody>
+          <tr *ngFor="let bus of this.serverDataArr">
+            <td>{{bus.ROUTE_ID}}</td>
+            <td>{{bus.FULL_FARE}}</td>
+            <td>{{bus.LOC_START_NAMEE}}</td>
+            <td>{{bus.LOC_END_NAMEE}}</td>
+            <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
+          </tr>
+          
+            <!-- <tr>
+              <td>{{ serverDataArr.ROUTE_ID | json }}</td>
+              <td>{{serverDataArr.fare | json }}</td>
+              <td>{{serverDataArr.LOC_START_NAMEE | json }}</td>
+              <td>{{serverDataArr.LOC_END_NAMEE | json }}</td>
+            </tr> -->
+
+            
+  
           </table>
+        </div>
+
+
         <div class="arrow-icon" (click)="toggle()">
           <i class="ion-ios-arrow-back"></i>
         </div>

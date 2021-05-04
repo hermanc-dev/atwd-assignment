@@ -136,7 +136,8 @@
 
 .inputBox input:focus,
 .inputBox input:valid{
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 222, 115);
+  ;
 	width: 100%;
   backface-visibility: hidden;
 }
@@ -150,3 +151,9 @@
 
 
 
+.routeTable{
+  margin: 20px;
+}
+.table{
+  width: 100%;
+}

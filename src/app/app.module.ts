@@ -6,17 +6,23 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlipCardModule } from './flip-card/flip-card.module';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SearchFormComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     MatToolbarModule,
-    FlipCardModule
+    FlipCardModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule
+
 
   ],
   providers: [],
