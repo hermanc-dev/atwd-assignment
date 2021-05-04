@@ -21,11 +21,12 @@ export class FlipCardComponent implements OnInit {
 
   busRecord: BusRecord = {
     ROUTE_ID: "",
-    fare: 0,
+    FULL_FARE: 0,
     LOC_START_NAMEE: "",
-    LOC_END_NAMEE: "",
-    LOC_STOP_NAMEE: ""
+    LOC_END_NAMEE: ""
+    // LOC_STOP_NAMEE: ""
   }
+
 
   constructor(fb: FormBuilder, http: HttpClient) {
 
@@ -49,10 +50,15 @@ export class FlipCardComponent implements OnInit {
     
   }
 
+  back() {
+    this.toggleProperty = !this.toggleProperty;
+    this.serverData=null;
+    this.serverDataArr=null;
+  }
+
   toggle() {
     this.toggleProperty = !this.toggleProperty;
   }
-
 
   submitForm(value: any): void {
     console.log('Reactive Form Data:', value);
@@ -77,6 +83,30 @@ export class FlipCardComponent implements OnInit {
     );
 
 
+  }
+
+  @Output() deleteEvent = new EventEmitter<BusRecord>();
+
+  deleteButtonHandler(ROUTE_ID: string) {
+    console.log("Search: delete button: " + ROUTE_ID);
+    console.log("Search: Emitting deleteEvent");
+
+    for (let bus of this.serverDataArr) {
+      if (ROUTE_ID === bus.ROUTE_ID) {
+        this.busRecord.ROUTE_ID = bus.ROUTE_ID;
+        this.busRecord.FULL_FARE = bus.FULL_FARE;
+        this.busRecord.LOC_START_NAMEE = bus.LOC_START_NAMEE;
+        this.busRecord.LOC_END_NAMEE = bus.LOC_END_NAMEE;
+
+        // this.busRecord.LOC_STOP_NAMEE = bus.LOC_STOP_NAMEE;
+      }
+    }
+    console.log(this.busRecord);
+    this.deleteEvent.emit(this.busRecord);
+  }
+
+  pop(){
+    console.log("lalalalala");
   }
 
 

@@ -9,7 +9,7 @@
           <form [formGroup]="complexForm" (submit)="submitForm(complexForm.value)">
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-menu icon"></i>   
-              <input  formControlName="routeId" type="number" name="" id="routeId" value="" required="required" autocomplete="off" 
+              <input  formControlName="routeId" type="text" name="" id="routeId" value="" required="required" autocomplete="off" 
               />
               <label>Route ID.</label>
               <div class="bottom-line"></div>
@@ -69,11 +69,12 @@
               <th>Start Point</th>
               <th>End Point</th>
             </tr>
-          <tr *ngFor="let bus of this.serverDataArr">
+          <tr *ngFor="let bus of this.serverDataArr" (click)="pop()">
             <td>{{bus.ROUTE_ID}}</td>
             <td>{{bus.FULL_FARE}}</td>
             <td>{{bus.LOC_START_NAMEE}}</td>
             <td>{{bus.LOC_END_NAMEE}}</td>
+            <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td>
             <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
           </tr>
           
@@ -90,7 +91,7 @@
         </div>
 
 
-        <div class="arrow-icon" (click)="toggle()">
+        <div class="arrow-icon" (click)="back()">
           <i class="ion-ios-arrow-back"></i>
         </div>
       </div>
