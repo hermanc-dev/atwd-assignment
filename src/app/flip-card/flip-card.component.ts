@@ -63,23 +63,23 @@ export class FlipCardComponent implements OnInit {
 
   submitForm(value: any): void {
     var query="";
-    if(value['routeId']!=""){
+    if(value['routeId']!=""&&value['routeId']!=null){
       query+="ROUTE_ID=" + value['routeId']+"&"; 
     }
 
-    if(value['start']!=""){
+    if(value['start']!=""&&value['start']!=null){
       query+="LOC_START_NAMEE=" + value['start']+"&"; 
     }
 
-    if(value['busNo']!=""){
+    if(value['busNo']!=""&&value['busNo']!=null){
       query+="ROUTE_NAMEE=" + value['busNo']+"&"; 
     }
 
-    if(value['end']!=""){
+    if(value['end']!=""&&value['end']!=null){
       query+="LOC_END_NAMEE=" + value['end']+"&"; 
     }
 
-    if(value['stop']!=""){
+    if(value['stop']!=""&&value['stop']!=null){
       query+="LOC_STOP_NAMEE=" + value['stop']+"&"; 
     }
 
