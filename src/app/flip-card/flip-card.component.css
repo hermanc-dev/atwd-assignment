@@ -149,11 +149,17 @@
   color: rgb(255, 222, 115);
 }
 
-
-
 .routeTable{
   margin: 20px;
 }
 .table{
   width: 100%;
 }
+th{
+  color: rgb(255, 222, 115);
+}
+
+tr:hover{
+  background-color: #b6b6b6ec;
+}
+

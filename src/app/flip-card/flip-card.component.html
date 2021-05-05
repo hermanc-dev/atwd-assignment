@@ -62,19 +62,19 @@
         <ng-content select="flip-card-back"></ng-content>
        
         <div class='routeTable'>
-          <table class='table' border=1>
+          <table class='table' border="1" cellspacing="0">
             <tr>
               <th>Route</th>
               <th>Fare</th>
               <th>Start Point</th>
               <th>End Point</th>
             </tr>
-          <tr *ngFor="let bus of this.serverDataArr" (click)="pop()">
+          <tr *ngFor="let bus of this.serverDataArr" (click)="pop(bus.ROUTE_ID)">
             <td>{{bus.ROUTE_ID}}</td>
             <td>{{bus.FULL_FARE}}</td>
             <td>{{bus.LOC_START_NAMEE}}</td>
             <td>{{bus.LOC_END_NAMEE}}</td>
-            <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td>
+            <!-- <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td> -->
             <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
           </tr>
           

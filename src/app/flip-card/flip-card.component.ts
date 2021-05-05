@@ -71,11 +71,11 @@ export class FlipCardComponent implements OnInit {
     )
     .subscribe(
       res => {  // anonymous function
-        console.log("Server return: " + res);
-        this.serverData = res;
+        console.log("Server return: " + JSON.stringify(res));
+        this.serverData = JSON.stringify(res);
         this.serverDataArr = JSON.parse(JSON.stringify(res));
-      
-      
+        console.log("DATA: " +  this.serverDataArr[0].ROUTE_ID);
+
       },  
       res => {  // anonymous function
         console.log("Server error: " + res);
@@ -105,8 +105,23 @@ export class FlipCardComponent implements OnInit {
     this.deleteEvent.emit(this.busRecord);
   }
 
-  pop(){
-    console.log("lalalalala");
+  pop(ROUTE_ID:string){
+    console.log("clicked row");
+    console.log("DATA: " +  ROUTE_ID);
+    this.url= "http://localhost/bus/route/"+ROUTE_ID;
+    console.log('url', this.url);
+    this.http.get<any>(
+      this.url
+    )
+    .subscribe(
+      res => {  // anonymous function
+        console.log("Server return: " + JSON.stringify(res));
+      },  
+      res => {  // anonymous function
+        console.log("Server error: " + res);
+      }
+    );
+
   }
 
 
