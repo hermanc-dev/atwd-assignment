@@ -9,7 +9,7 @@
           <form [formGroup]="complexForm" (submit)="submitForm(complexForm.value)">
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-menu icon"></i>   
-              <input  formControlName="routeId" type="text" name="" id="routeId" value="" required="required" autocomplete="off" 
+              <input  formControlName="routeId" type="text" name="routeId" #routeId id="routeId" value="" required="required" autocomplete="off" 
               />
               <label>Route ID.</label>
               <div class="bottom-line"></div>
@@ -17,7 +17,7 @@
 
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-bus"></i>
-              <input formControlName="busNo"  type="text" name="" id="busNo" value="" required="required" autocomplete="off"
+              <input formControlName="busNo"  type="text" name="busNo" #busNo id="busNo" value="" required="required" autocomplete="off"
               />
               <label>Bus No.</label>
               <div class="bottom-line"></div>
@@ -25,7 +25,7 @@
      
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-md-navigate"></i>   
-              <input formControlName="start" type="text" name="" id="start" value="" required="required" autocomplete="off"
+              <input formControlName="start" type="text" name="start" #start  id="start" value="" required="required" autocomplete="off"
               />
               <label>Start Location</label>
               <div class="bottom-line"></div>
@@ -33,7 +33,7 @@
 
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-skip-forward"></i>
-              <input formControlName="stop" type="text" name="" id="stop" value="" required="required" autocomplete="off"
+              <input formControlName="stop" type="text" name="stop" #stop id="stop" value="" required="required" autocomplete="off"
               />
               <label>Stop Location</label>
               <div class="bottom-line"></div>
@@ -41,15 +41,19 @@
 
             <div class="inputBox form-group" style="display: inline-flex; ">
               <i class="icon ion-ios-square"></i>   
-              <input formControlName="end"  type="text" name="" id="end" value="" required="required" autocomplete="off"
+              <input formControlName="end"  type="text" name="end" #end id="end" value="" required="required" autocomplete="off"
               />
               <label>End Location</label>
               <div class="bottom-line"></div>
             </div>
+            <div class="reset-icon" >
+                <!-- <i class="ion-ios-refresh" (click)="routeId.value='';busNo.value='';start.value=''; stop.value='' ; end.value=''; "></i> -->
+                <button type="reset" style="background-color: transparent;border: 0;outline: none; width: 50px;"><i style="font-size: 20px;"  class="ion-ios-refresh"></i></button> 
+              </div>
+
             <div class="arrow-icon" (click)="toggle();submitForm(complexForm.value)">
               <!-- <div class="arrow-icon" (click)="submitForm(complexForm.value)"> -->
-
-              <i class="ion-ios-search"></i>
+                <i class="ion-ios-search"></i>
             </div>
          </form>
         </div>
@@ -60,17 +64,21 @@
       </div>
       <div class="back">
         <ng-content select="flip-card-back"></ng-content>
-       
-        <div class='routeTable'>
-          <table class='table' border="1" cellspacing="0">
+        <div class='routeTable'  style="height: calc(100% - 100px);overflow-y: auto;">
+          <table class='table ' border="1" cellspacing="0">
+            <thead>
             <tr>
               <th>Route</th>
+              <th>Bus No.</th>
               <th>Fare</th>
               <th>Start Point</th>
               <th>End Point</th>
             </tr>
-          <tr *ngFor="let bus of this.serverDataArr" (click)="pop(bus.ROUTE_ID)">
+          </thead>
+          <tbody>
+          <tr  *ngFor="let bus of this.serverDataArr" (click)="pop(bus.ROUTE_ID)">
             <td>{{bus.ROUTE_ID}}</td>
+            <td>{{bus.ROUTE_NAMEE}}</td>
             <td>{{bus.FULL_FARE}}</td>
             <td>{{bus.LOC_START_NAMEE}}</td>
             <td>{{bus.LOC_END_NAMEE}}</td>
@@ -86,7 +94,7 @@
             </tr> -->
 
             
-  
+          </tbody>
           </table>
         </div>
 

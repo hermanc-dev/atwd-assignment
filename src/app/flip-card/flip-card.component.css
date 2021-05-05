@@ -52,13 +52,12 @@
   
   .arrow-icon {
     backface-visibility: hidden;
-
     position: absolute;
     right: 5px;
     bottom: 10px;
     opacity: 1;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -71,6 +70,28 @@
     bottom: 20px;
     color: rgb(255, 222, 115);
   }
+
+  .reset-icon{
+    backface-visibility: hidden;
+    position: absolute;
+    right: 30px;
+    bottom:30px;
+    opacity: 1;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+	  right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    border: 0px solid	rgba(255, 255, 255, 0.925);
+    color: rgba(255, 255, 255, 0.952);
+  }
+
+
 
   .frontForm{
     margin: auto;
@@ -154,10 +175,21 @@
 }
 .table{
   width: 100%;
+  border: rgb(150, 150, 150);
 }
+
+.table tr {
+  line-height: 28px;
+  text-align: center;
+}
+
+
+
+
 th{
   color: rgb(255, 222, 115);
 }
+
 
 tr:hover{
   background-color: #b6b6b6ec;

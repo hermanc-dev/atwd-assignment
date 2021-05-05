@@ -23,8 +23,9 @@ export class FlipCardComponent implements OnInit {
     ROUTE_ID: "",
     FULL_FARE: 0,
     LOC_START_NAMEE: "",
-    LOC_END_NAMEE: ""
-    // LOC_STOP_NAMEE: ""
+    LOC_END_NAMEE: "",
+    LOC_STOP_NAMEE: "",
+    ROUTE_NAMEE: "",
   }
 
 
@@ -57,13 +58,37 @@ export class FlipCardComponent implements OnInit {
   }
 
   toggle() {
-    this.toggleProperty = !this.toggleProperty;
+    // this.toggleProperty = !this.toggleProperty;
   }
 
   submitForm(value: any): void {
+    var query="";
+    if(value['routeId']!=""){
+      query+="ROUTE_ID=" + value['routeId']+"&"; 
+    }
+
+    if(value['start']!=""){
+      query+="LOC_START_NAMEE=" + value['start']+"&"; 
+    }
+
+    if(value['busNo']!=""){
+      query+="ROUTE_NAMEE=" + value['busNo']+"&"; 
+    }
+
+    if(value['end']!=""){
+      query+="LOC_END_NAMEE=" + value['end']+"&"; 
+    }
+
+    if(value['stop']!=""){
+      query+="LOC_STOP_NAMEE=" + value['stop']+"&"; 
+    }
+
+    query = query.substr(0, query.length-1);
+    query = query.replace(" ","+")
+
     console.log('Reactive Form Data:', value);
     this.serverData = null;
-    this.url= "http://localhost/bus/route/"+value['routeId'];
+    this.url= "http://localhost/bus/route/"+query;
     console.log('url', this.url);
 
     this.http.get<any>(
@@ -75,10 +100,30 @@ export class FlipCardComponent implements OnInit {
         this.serverData = JSON.stringify(res);
         this.serverDataArr = JSON.parse(JSON.stringify(res));
         console.log("DATA: " +  this.serverDataArr[0].ROUTE_ID);
+        
+        // let check : string[][] = []
+        var check = new Array();
+        var counter=0;
+        for(var item of this.serverDataArr){
+          console.log(item["ROUTE_ID"])
+          if(counter==0){
+            check.push(item)
+            counter++;
+          }
+          else if(check[counter-1]["ROUTE_ID"] != item["ROUTE_ID"]){
+            check.push(item)
+            counter++;
+          }
+        }
+
+      console.log(check);
+      this.serverDataArr = check;
+      this.toggleProperty = !this.toggleProperty;
 
       },  
       res => {  // anonymous function
         console.log("Server error: " + res);
+        alert("No information found. Please enter again.");
       }
     );
 
@@ -94,9 +139,11 @@ export class FlipCardComponent implements OnInit {
     for (let bus of this.serverDataArr) {
       if (ROUTE_ID === bus.ROUTE_ID) {
         this.busRecord.ROUTE_ID = bus.ROUTE_ID;
+        this.busRecord.ROUTE_NAMEE = bus.ROUTE_NAMEE;
         this.busRecord.FULL_FARE = bus.FULL_FARE;
         this.busRecord.LOC_START_NAMEE = bus.LOC_START_NAMEE;
         this.busRecord.LOC_END_NAMEE = bus.LOC_END_NAMEE;
+        this.busRecord.LOC_STOP_NAMEE = bus.LOC_STOP_NAMEE;
 
         // this.busRecord.LOC_STOP_NAMEE = bus.LOC_STOP_NAMEE;
       }
@@ -123,7 +170,5 @@ export class FlipCardComponent implements OnInit {
     );
 
   }
-
-
 
 }

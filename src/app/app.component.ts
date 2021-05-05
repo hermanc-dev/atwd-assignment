@@ -21,7 +21,9 @@ export class AppComponent {
       "ROUTE_ID": busRecord.ROUTE_ID,
       "FULL_FARE": busRecord.FULL_FARE,
       "LOC_START_NAMEE": busRecord.LOC_START_NAMEE,
-      "LOC_END_NAMEE": busRecord.LOC_END_NAMEE
+      "LOC_END_NAMEE": busRecord.LOC_END_NAMEE,
+      "LOC_STOP_NAMEE": busRecord.LOC_STOP_NAMEE,
+      "ROUTE_NAMEE": busRecord.ROUTE_NAMEE
     };
     this.busRecord = newBusRecord;
 
@@ -29,6 +31,7 @@ export class AppComponent {
     console.log("fare: " + this.busRecord.FULL_FARE);
     console.log("startPoint: " + this.busRecord.LOC_START_NAMEE);
     console.log("endPoint: " + this.busRecord.LOC_END_NAMEE);
+
     this.deleteEventTriggered = true;
   }
 
