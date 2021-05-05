@@ -63,12 +63,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid	rgb(255, 222, 115);
+    border: 1px solid	rgb(255, 255, 255);
     margin: auto;
 	  left: 0;
 	  right: 0;
     bottom: 20px;
-    color: rgb(255, 222, 115);
+    color: rgb(255, 255, 255);
   }
 
   .reset-icon{
@@ -167,7 +167,7 @@
 .icon{
   font-size: 35px;
   margin-right: 10px;
-  color: rgb(255, 222, 115);
+  color: rgb(255, 255, 255);
 }
 
 .routeTable{
