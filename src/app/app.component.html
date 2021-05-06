@@ -4,11 +4,11 @@
   Your browser does not support HTML5 video.
 </video>
 
-<flip-card *ngIf="checked"  (deleteEvent)="deleteEventReceiver($event)">
+<flip-card *ngIf="search"  (deleteEvent)="deleteEventReceiver($event)">
   <flip-card-front>
   </flip-card-front>
   <flip-card-back>
   </flip-card-back>
 </flip-card>
 
-<admin-console ></admin-console>
+<admin-console *ngIf="admin"></admin-console>

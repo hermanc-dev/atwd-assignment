@@ -1,0 +1,100 @@
+.container {
+    width: 900px;
+    height: 600px;
+    display: block;
+    position: absolute;
+    perspective: 800px;
+    border-radius: 4px;
+    margin: auto;
+    top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+    border: 0;
+    font-weight: 500;
+  }
+
+  .panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+  }
+
+    
+  .panel .front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    background-color: #7a7c7ef5;
+    color: #fff;
+    /* display: grid; */
+    place-items: center;
+  }
+  
+  h1{
+      text-align: center;
+      font-size: 35px;
+      margin: 30px;
+  }
+
+
+.searchBox {
+    width: 900;
+    margin: 20px;
+}
+.searchBox input{
+    width:calc(100%);
+    bottom: 10px;
+
+	outline: none;
+	border: none;
+	color: rgb(255, 222, 115);
+	font-size: 20px;
+	border-bottom: 1px solid rgb(158, 158, 158);
+	background: none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(224, 223, 223);
+    opacity: 0.3; /* Firefox */
+  }
+
+
+.routeTable{
+    margin: 20px;
+  }
+  .table{
+    width: 100%;
+    border: rgb(150, 150, 150);
+  }
+  
+  .table tr {
+    line-height: 28px;
+    text-align: center;
+  }
+  
+  
+  
+  th{
+    color: rgb(255, 222, 115);
+  }
+  
+  
+  tr:hover{
+    background-color: #b6b6b6ec;
+  }
+
+  table thead th {
+    padding: 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 25vw;
+    background: #b6b6b6;
+  }

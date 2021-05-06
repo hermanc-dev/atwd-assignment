@@ -85,9 +85,13 @@ label input:checked + .menu .hamburger:before {
 }
 label input:checked + .menu + ul {
   opacity: 1;
+  display:inline;
 }
+
+
+
 label ul {
-    list-style: none;
+  list-style: none;
   z-index: 200;
   position: absolute;
   top: 50%;
@@ -97,6 +101,8 @@ label ul {
   transition: 0.25s 0s ease-in-out;
   text-align: center;
   margin-bottom: 30px;
+  display: none;
+
 }
 label a {
   margin-bottom: 1em;

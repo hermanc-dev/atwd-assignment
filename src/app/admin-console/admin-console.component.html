@@ -1,1 +1,34 @@
-<p>admin-console works!</p>
+<div class='container'>
+    <div class='panel'>
+        <div class='front'>   
+            <h1>RTOUE LIST</h1>
+            <div class="searchBox">
+                <input placeholder="Search" class='search'>
+            </div>
+            <div class='routeTable'  style=" height: calc(100% - 150px);overflow-y: auto;">
+                <table class='table' border="1" cellspacing="0">
+                  <thead style="position: sticky;">
+                  <tr>
+                    <th>Route</th>
+                    <th>Bus No.</th>
+                    <th>Fare</th>
+                    <th>Start Point</th>
+                    <th>End Point</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bus of this.serverDataArr" >
+                        <td>{{bus.ROUTE_ID}}</td>
+                        <td>{{bus.ROUTE_NAMEE}}</td>
+                        <td>{{bus.FULL_FARE}}</td>
+                        <td>{{bus.LOC_START_NAMEE}}</td>
+                        <td>{{bus.LOC_END_NAMEE}}</td>
+                        <!-- <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td> -->
+                        <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
+                      </tr>
+                </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>

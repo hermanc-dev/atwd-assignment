@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { BusRecord } from './BusRecord.model';
 
@@ -10,7 +11,8 @@ export class AppComponent {
   title = 'bus-route-web';
   deleteEventTriggered: boolean = false;
   busRecord!: BusRecord;
-  checked = true;
+  search = false;
+  admin = true;
 
   deleteEventReceiver(busRecord: BusRecord) {
     console.log("App: delete event received");
@@ -45,9 +47,11 @@ export class AppComponent {
 
   resData (e:any) {
     if(e=='search'){
-      this.checked=true;
+      this.search=true;
+      this.admin = false;
     }else if(e=='admin'){
-      this.checked=false;
+      this.search=false;
+      this.admin=true;
     }
   }
 }
