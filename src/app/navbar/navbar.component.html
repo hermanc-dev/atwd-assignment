@@ -4,19 +4,20 @@
    -->
 
    <label>
-    <input type="checkbox">
+    <input type="checkbox"  [ngModel]="filter" (ngModelchange)="onFilterChange($event)"
+    >
     <span class="menu">
       <span class="hamburger"></span>
     </span>
     <ul>
       <li>
-        <a href="#">BUS ROUTE SEARCH</a>
+        <a href="#" (click)="onFilterChange($event)"   >BUS ROUTE SEARCH</a>
       </li>
       <li>
-        <a href="#">ADMIN CONSOLE</a>
+        <a href="#" (click)="onFilterChange($event)"  >ADMIN CONSOLE</a>
       </li>
       <li>
-        <a href="#">ABOUT ME</a>
+        <a href="#" (click)="onFilterChange($event)"  >ABOUT ME</a>
       </li>
     </ul>
   </label>

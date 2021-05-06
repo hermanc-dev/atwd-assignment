@@ -22,6 +22,8 @@ body {
   background: #CCC;
   overflow-x: hidden;
 }
+
+
 label .menu {
   position: absolute;
   right: -100px;
@@ -35,6 +37,8 @@ label .menu {
   box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
   cursor: pointer;
 }
+
+
 label .hamburger {
   position: absolute;
   top: 135px;

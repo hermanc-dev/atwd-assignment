@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  public filter!: boolean;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
 
+  
+  onFilterChange(event:any){
+    this.filter =!this.filter;
+  }
+  
 }
