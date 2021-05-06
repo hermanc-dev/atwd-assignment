@@ -5,11 +5,12 @@
             <div class="searchBox">
                 <input placeholder="Search" class='search'>
             </div>
-            <div class='routeTable'  style=" height: calc(100% - 150px);overflow-y: auto;">
+            <div class='routeTable'  style=" height: calc(100% - 180px);overflow-y: auto;">
                 <table class='table' border="1" cellspacing="0">
                   <thead style="position: sticky;">
                   <tr>
                     <th>Route</th>
+                    <th>Company</th>
                     <th>Bus No.</th>
                     <th>Fare</th>
                     <th>Start Point</th>
@@ -18,7 +19,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let bus of this.serverDataArr" >
+                        
                         <td>{{bus.ROUTE_ID}}</td>
+                        <td>{{bus.COMPANY_CODE}}</td>
                         <td>{{bus.ROUTE_NAMEE}}</td>
                         <td>{{bus.FULL_FARE}}</td>
                         <td>{{bus.LOC_START_NAMEE}}</td>
