@@ -44,6 +44,10 @@ export class AppComponent {
   }
 
   resData (e:any) {
-    this.checked=e;
+    if(e=='search'){
+      this.checked=true;
+    }else if(e=='admin'){
+      this.checked=false;
+    }
   }
 }

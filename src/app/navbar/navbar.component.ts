@@ -20,8 +20,8 @@ export class NavbarComponent implements OnInit {
     this.filter =!this.filter;
   }
   
-  resData(){
-    this.toParent.emit(false);
+  resData(value:string){
+    this.toParent.emit(value);
   }
   
 }
