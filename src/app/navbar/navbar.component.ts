@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   public filter!: boolean;
 
+  @Output() toParent = new EventEmitter();
   constructor() { 
   }
 
@@ -17,6 +18,10 @@ export class NavbarComponent implements OnInit {
   
   onFilterChange(event:any){
     this.filter =!this.filter;
+  }
+  
+  resData(){
+    this.toParent.emit(false);
   }
   
 }

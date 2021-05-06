@@ -8,12 +8,14 @@ import { FlipCardModule } from './flip-card/flip-card.module';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    AdminConsoleComponent
     ],
   imports: [
     BrowserModule,

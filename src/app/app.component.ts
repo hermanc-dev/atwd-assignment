@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'bus-route-web';
   deleteEventTriggered: boolean = false;
   busRecord!: BusRecord;
+  checked = true;
 
   deleteEventReceiver(busRecord: BusRecord) {
     console.log("App: delete event received");
@@ -42,4 +43,7 @@ export class AppComponent {
     this.deleteEventTriggered = false;
   }
 
+  resData (e:any) {
+    this.checked=e;
+  }
 }
