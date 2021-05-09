@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusRecord } from '../BusRecord.model';
+import {MatDialog} from '@angular/material/dialog';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+
 @Component({
   selector: 'admin-console',
   templateUrl: './admin-console.component.html',
@@ -11,7 +14,7 @@ export class AdminConsoleComponent implements OnInit {
   serverData: Object | null;
   serverDataArr: any;
   url: string;
-  constructor( http: HttpClient) {
+  constructor(public dialog:MatDialog, http: HttpClient) {
     this.http = http;
     this.serverData = null;
     this.url = "";
@@ -31,21 +34,17 @@ export class AdminConsoleComponent implements OnInit {
           this.serverData = JSON.stringify(res);
           this.serverDataArr = JSON.parse(JSON.stringify(res));
           console.log("DATA: " +  this.serverDataArr[0].ROUTE_ID);
-        
+
         },  
         res => {  // anonymous function
           console.log("Server error: " + res);
           alert("No information found. Please enter again.");
         }
       );
-  
-
-
-
-
-
 
   }
-
+  showAddPostDialog() {
+    this.dialog.open(EditDialogComponent);
+  }
 
 }

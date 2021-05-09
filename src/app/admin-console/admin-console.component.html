@@ -5,6 +5,10 @@
             <div class="searchBox">
                 <input placeholder="Search" class='search'>
             </div>
+
+            <div class="addBtn" style="width: 100%; text-align: right;" >
+                <button mat-raised-button color="primary" style=" margin-right: 20px" (click)="showAddPostDialog()">Add</button>
+            </div>
             <div class='routeTable'  style=" height: calc(100% - 180px);overflow-y: auto;">
                 <table class='table' border="1" cellspacing="0">
                   <thead style="position: sticky;">
