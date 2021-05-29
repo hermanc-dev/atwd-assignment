@@ -34,7 +34,7 @@ export class AdminConsoleComponent implements OnInit {
           this.serverData = JSON.stringify(res);
           this.serverDataArr = JSON.parse(JSON.stringify(res));
           console.log("DATA: " +  this.serverDataArr[0].ROUTE_ID);
-
+          
         },  
         res => {  // anonymous function
           console.log("Server error: " + res);

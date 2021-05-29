@@ -8,3 +8,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue"; font-weight: 500;}
     margin: 0;
     padding: 0;
   }
+
+
+.custom-dialog-container .mat-dialog-container {
+    /* add your styles */
+    padding: 0px;
+}

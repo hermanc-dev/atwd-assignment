@@ -11,8 +11,8 @@ export class AppComponent {
   title = 'bus-route-web';
   deleteEventTriggered: boolean = false;
   busRecord!: BusRecord;
-  search = false;
-  admin = true;
+  search = true;
+  admin = false;
 
   deleteEventReceiver(busRecord: BusRecord) {
     console.log("App: delete event received");
@@ -38,7 +38,7 @@ export class AppComponent {
     this.deleteEventTriggered = true;
   }
 
-  
+
 
   cancelDeleteEventReceiver() {
     console.log("App: cancel event received");

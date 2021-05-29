@@ -1,0 +1,41 @@
+
+.container{
+  height: 700px;
+  width: 900px;
+  padding: 0px;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  /* add your styles */
+  padding: 0;
+}
+
+.head, .details{
+  width: 100%;
+}
+
+.head{
+  height: 20%;
+  margin: auto;
+}
+
+.details{
+  height: 80%;
+  margin: auto;
+}
+
+.leftbox {
+  width: 30%;
+  height: 100%;
+  background-color: #aadddd;
+  float: left;
+  margin: auto;
+}
+
+.rightbox {
+  width: 70%;
+  height: 100%;
+  background-color: #f08844;
+  float: right;
+  margin: auto;
+}

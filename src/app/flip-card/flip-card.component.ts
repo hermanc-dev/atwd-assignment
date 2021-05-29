@@ -2,6 +2,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { BusRecord } from '../BusRecord.model';
 import { Component, Input, OnInit, Output, EventEmitter  } from '@angular/core';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'flip-card',
@@ -29,7 +31,7 @@ export class FlipCardComponent implements OnInit {
   }
 
 
-  constructor(fb: FormBuilder, http: HttpClient) {
+  constructor(public dialog:MatDialog,fb: FormBuilder, http: HttpClient) {
 
     this.http = http;
     this.serverData = null;
@@ -48,7 +50,7 @@ export class FlipCardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+
   }
 
   back() {
@@ -64,23 +66,23 @@ export class FlipCardComponent implements OnInit {
   submitForm(value: any): void {
     var query="";
     if(value['routeId']!=""&&value['routeId']!=null){
-      query+="ROUTE_ID=" + value['routeId']+"&"; 
+      query+="ROUTE_ID=" + value['routeId']+"&";
     }
 
     if(value['start']!=""&&value['start']!=null){
-      query+="LOC_START_NAMEE=" + value['start']+"&"; 
+      query+="LOC_START_NAMEE=" + value['start']+"&";
     }
 
     if(value['busNo']!=""&&value['busNo']!=null){
-      query+="ROUTE_NAMEE=" + value['busNo']+"&"; 
+      query+="ROUTE_NAMEE=" + value['busNo']+"&";
     }
 
     if(value['end']!=""&&value['end']!=null){
-      query+="LOC_END_NAMEE=" + value['end']+"&"; 
+      query+="LOC_END_NAMEE=" + value['end']+"&";
     }
 
     if(value['stop']!=""&&value['stop']!=null){
-      query+="LOC_STOP_NAMEE=" + value['stop']+"&"; 
+      query+="LOC_STOP_NAMEE=" + value['stop']+"&";
     }
 
     query = query.substr(0, query.length-1);
@@ -100,7 +102,7 @@ export class FlipCardComponent implements OnInit {
         this.serverData = JSON.stringify(res);
         this.serverDataArr = JSON.parse(JSON.stringify(res));
         console.log("DATA: " +  this.serverDataArr[0].ROUTE_ID);
-        
+
         // let check : string[][] = []
         var check = new Array();
         var counter=0;
@@ -120,7 +122,7 @@ export class FlipCardComponent implements OnInit {
       this.serverDataArr = check;
       this.toggleProperty = !this.toggleProperty;
 
-      },  
+      },
       res => {  // anonymous function
         console.log("Server error: " + res);
         alert("No information found. Please enter again.");
@@ -163,11 +165,18 @@ export class FlipCardComponent implements OnInit {
     .subscribe(
       res => {  // anonymous function
         console.log("Server return: " + JSON.stringify(res));
-      },  
+      },
       res => {  // anonymous function
         console.log("Server error: " + res);
       }
     );
+    this.dialog.open(EditDialogComponent,{data:{
+      test:ROUTE_ID
+    },height: '700px',
+    width: '900px',
+    panelClass: 'custom-dialog-container',
+
+  });
 
   }
 
