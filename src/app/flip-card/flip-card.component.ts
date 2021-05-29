@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BusRecord } from '../BusRecord.model';
 import { Component, Input, OnInit, Output, EventEmitter  } from '@angular/core';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -154,7 +155,7 @@ export class FlipCardComponent implements OnInit {
     this.deleteEvent.emit(this.busRecord);
   }
 
-  pop(ROUTE_ID:string){
+  pop(ROUTE_ID:string,ROUTE_NAMEE:string,FULL_FARE:string,LOC_START_NAMEE:string,LOC_END_NAMEE:string){
     console.log("clicked row");
     console.log("DATA: " +  ROUTE_ID);
     this.url= "http://localhost/bus/route/"+ROUTE_ID;
@@ -171,13 +172,44 @@ export class FlipCardComponent implements OnInit {
       }
     );
     this.dialog.open(EditDialogComponent,{data:{
-      test:ROUTE_ID
+      routeID:ROUTE_ID,
+      ROUTE_NAMEE:ROUTE_NAMEE,
+      FULL_FARE:FULL_FARE,
+      LOC_START_NAMEE:LOC_START_NAMEE,
+      LOC_END_NAMEE:LOC_END_NAMEE
     },height: '700px',
     width: '900px',
     panelClass: 'custom-dialog-container',
-
   });
 
+  }
+
+
+  deleteDialog(ROUTE_ID:string){
+      this.dialog.open(ConfirmDialogComponent,{data:{
+      routeID:ROUTE_ID,
+    },height: '200px',
+    width: '300px',
+    panelClass: 'custom-dialog-container',
+  });
+  }
+
+
+
+  deleteRoute(ROUTE_ID:string){
+    this.url= "http://localhost/bus/route/"+ROUTE_ID;
+    console.log('url', this.url);
+    this.http.delete<any>(
+      this.url
+    )
+    .subscribe(
+      res => {  // anonymous function
+        console.log("Server return: " + JSON.stringify(res));
+      },
+      res => {  // anonymous function
+        console.log("Server error: " + res);
+      }
+    );
   }
 
 }

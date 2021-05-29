@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     SearchFormComponent,
     AdminConsoleComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    ConfirmDialogComponent
     
     ],
   imports: [
@@ -29,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

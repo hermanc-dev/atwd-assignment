@@ -73,15 +73,17 @@
               <th>Fare</th>
               <th>Start Point</th>
               <th>End Point</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-          <tr  *ngFor="let bus of this.serverDataArr" (click)="pop(bus.ROUTE_ID)">
-            <td>{{bus.ROUTE_ID}}</td>
-            <td>{{bus.ROUTE_NAMEE}}</td>
-            <td>{{bus.FULL_FARE}}</td>
-            <td>{{bus.LOC_START_NAMEE}}</td>
-            <td>{{bus.LOC_END_NAMEE}}</td>
+          <tr  *ngFor="let bus of this.serverDataArr" >
+            <td (click)="pop(bus.ROUTE_ID,bus.ROUTE_NAMEE,bus.FULL_FARE,bus.LOC_START_NAMEE,bus.LOC_END_NAMEE)">{{bus.ROUTE_ID}}</td>
+            <td (click)="pop(bus.ROUTE_ID,bus.ROUTE_NAMEE,bus.FULL_FARE,bus.LOC_START_NAMEE,bus.LOC_END_NAMEE)">{{bus.ROUTE_NAMEE}}</td>
+            <td (click)="pop(bus.ROUTE_ID,bus.ROUTE_NAMEE,bus.FULL_FARE,bus.LOC_START_NAMEE,bus.LOC_END_NAMEE)">{{bus.FULL_FARE}}</td>
+            <td (click)="pop(bus.ROUTE_ID,bus.ROUTE_NAMEE,bus.FULL_FARE,bus.LOC_START_NAMEE,bus.LOC_END_NAMEE)">{{bus.LOC_START_NAMEE}}</td>
+            <td (click)="pop(bus.ROUTE_ID,bus.ROUTE_NAMEE,bus.FULL_FARE,bus.LOC_START_NAMEE,bus.LOC_END_NAMEE)">{{bus.LOC_END_NAMEE}}</td>
+            <td><button (click)="deleteDialog(bus.ROUTE_ID)">Delete</button></td>
             <!-- <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td> -->
             <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
           </tr>

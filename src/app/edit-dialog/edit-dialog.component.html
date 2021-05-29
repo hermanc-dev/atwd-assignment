@@ -1,12 +1,65 @@
 
 
+
 <div>
   <div class="container">
-    <div class='head'>aaa</div>
+    <div class='head'>
+
+    <div style="width:30%;height:100%;   float: left;">
+      <div style="height:55%; text-align:center;  line-height: 100px; padding-bottom:0px; font-size:40pt">{{ROUTE_NAMEE}}</div>
+      <div style="height:45%; text-align:center;  line-height: 60px; padding-bottom:0px; font-size:30pt">${{FULL_FARE}}</div>
+    </div>
+    <div style="width:70%;height:100%; float: right;">
+      <div style="height:50%; text-align:center;line-height: 65px; font-size:20pt">Start: {{LOC_START_NAMEE}}</div>
+      <div style="height:50%; text-align:center;line-height: 65px; font-size:20pt">End: {{LOC_END_NAMEE}}</div>
+    </div>
+    
+
+    </div>
     <div class='details'>
 
-      <div class="leftbox">左侧列</div>
-      <div class="rightbox map">右侧列</div>
+      <div class="leftbox">
+                  <div class='routeTable'  style=" height: calc(100% - 20px);overflow-y: auto;">
+
+                <table class='table' border="1" cellspacing="0">
+                  <thead style="position: sticky;">
+                  <tr>
+                    <th>No.</th>
+                    <th>Stop Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bus of this.serverDataArr" (click)="show(bus.STOP_SEQ)">
+                        <td>{{bus.STOP_SEQ}}</td>
+                        <td>{{bus.STOP_NAMEE}}</td>
+                        
+                        <!-- <td><button (click)="deleteButtonHandler(bus.ROUTE_ID)">Delete</button></td> -->
+                        <!-- <td><button (click)="deleteButtonHandler(bus.routeId)">Delete</button></td> -->
+                      </tr>
+                </tbody>
+                </table>
+                </div>
+      </div>
+    <div id="sv" class="map" style="display:none">
+    </div>
+    
+
+
+      <div class="rightbox map" id="map">
+      <google-map 
+        height="100%"
+        width="100%"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options">
+        
+                <map-marker 
+                  *ngFor="let marker of markers"
+                [position]="marker.position"></map-marker>
+
+        </google-map>
+
+      </div>
 
     </div>
   </div>
