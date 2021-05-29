@@ -186,30 +186,27 @@ export class FlipCardComponent implements OnInit {
 
 
   deleteDialog(ROUTE_ID:string){
-      this.dialog.open(ConfirmDialogComponent,{data:{
+      const dialogRef=this.dialog.open(ConfirmDialogComponent,{data:{
       routeID:ROUTE_ID,
     },height: '200px',
     width: '300px',
     panelClass: 'custom-dialog-container',
   });
-  }
-
-
-
-  deleteRoute(ROUTE_ID:string){
-    this.url= "http://localhost/bus/route/"+ROUTE_ID;
-    console.log('url', this.url);
-    this.http.delete<any>(
-      this.url
-    )
-    .subscribe(
-      res => {  // anonymous function
-        console.log("Server return: " + JSON.stringify(res));
-      },
-      res => {  // anonymous function
-        console.log("Server error: " + res);
+      dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+  console.log(`Dialog result: ${result}`); // Pizza!
+      result = result.toString();
+      if(result!="cancel"){
+        this.back();
       }
-    );
+      //this.back();
+    });
+
+
+
   }
+
+
+
 
 }

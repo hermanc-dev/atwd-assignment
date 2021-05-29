@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,6 +13,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     HttpClientModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
