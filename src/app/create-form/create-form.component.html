@@ -1,0 +1,73 @@
+<div class='container'>
+  <div class='panel'>
+    <div class='front'>
+      <h1 style=" font-weight:bold;font-size: 34px;font-family:Hiragino Sans GB, MicroSoft YaHei;  text-align: center; padding-top: 20px;color: rgb(255, 255, 255);
+      ">Create New Bus Route</h1>
+      <div class='frontForm form-group'>
+        <form [formGroup]="createBusForm" (ngSubmit)="onSubmit(createBusForm.value)" class="ui form">
+          <!-- <div class="inputBox form-group" style="display: inline-flex; ">
+            <label for="routeNumber">Route Number</label>
+            <input type="text" id="routeNumber" placeholder="" formControlName="routeNumber">
+          </div> -->
+
+          <div class="inputBox form-group" style="display: inline-flex; margin-top:10px;">
+            <i class="icon ion-ios-menu icon"></i>
+            <input formControlName="routeNumber" type="text" name="routeId" #routeId id="routeId" value=""
+              required="required" autocomplete="off" />
+            <label>Route ID.</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <i class="icon ion-ios-bus"></i>
+            <input formControlName="busName" type="text" name="busName" #end id="busName" value="" required="required"
+              autocomplete="off" />
+            <label>Bus Name</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <i class="icon ion-logo-usd"></i>
+            <input formControlName="fare" type="text" name="fare" #end id="fare" value="" required="required"
+              autocomplete="off" />
+            <label>Fare</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <i class="icon ion-md-navigate"></i>
+            <input formControlName="startPoint" type="text" name="start" #start id="start" value="" required="required"
+              autocomplete="off" />
+            <label>Start Location</label>
+            <div class="bottom-line"></div>
+          </div>
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <i class="icon ion-ios-square"></i>
+            <input formControlName="endPoint" type="text" name="end" #end id="end" required="required"
+              autocomplete="off" />
+            <label>End Location</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+
+
+          <div class="arrow-icon" (click)="onSubmit(createBusForm.value)">
+            <i class="ion-md-add" style="font-size: 25pt;"></i>
+                   </div>
+
+
+        </form>
+
+        <div>
+          {{ serverData | json }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

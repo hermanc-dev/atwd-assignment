@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
 import {MatButtonModule} from '@angular/material/button';
+import { CreateFormComponent } from './create-form/create-form.component';
+import {MatInputModule} from '@angular/material/input';
+import { TestComponent } from './test/test.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import {MatButtonModule} from '@angular/material/button';
     SearchFormComponent,
     AdminConsoleComponent,
     EditDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    CreateFormComponent,
+    TestComponent,
+    EditFormComponent
     
     ],
   imports: [
@@ -35,7 +42,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     BrowserAnimationsModule,
     GoogleMapsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

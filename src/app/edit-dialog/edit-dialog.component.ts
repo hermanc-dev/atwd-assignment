@@ -1,8 +1,13 @@
+import { EditFormComponent } from './../edit-form/edit-form.component';
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps'
 import { HttpClient } from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
+
+
+
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
@@ -11,11 +16,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class EditDialogComponent implements OnInit {
   routeID:string;
-
-      ROUTE_NAMEE:string;
-      FULL_FARE:string;
-      LOC_START_NAMEE:string;
-      LOC_END_NAMEE:string;
+  ROUTE_NAMEE:string;
+  FULL_FARE:string;
+  LOC_START_NAMEE:string;
+  LOC_END_NAMEE:string;
 
 
 
@@ -39,7 +43,7 @@ export class EditDialogComponent implements OnInit {
   options: google.maps.MapOptions = {
     mapTypeId: 'roadmap',
     zoomControl: true,
-    scrollwheel: true, 
+    scrollwheel: true,
     disableDoubleClickZoom: false,
     maxZoom: 15,
     minZoom: 8,
@@ -54,12 +58,12 @@ export class EditDialogComponent implements OnInit {
 
 // http://www.geodetic.gov.hk/transform/v2/?inSys=hkgrid&n=843622&e=813951&outSys=wgsgeog
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,  http: HttpClient) {
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any,  http: HttpClient, public dialog:MatDialog,public dialogRef: MatDialogRef<EditDialogComponent>) {
     this.routeID = data.routeID;
-  this.ROUTE_NAMEE= data.ROUTE_NAMEE;
-      this.FULL_FARE= data.FULL_FARE;
-      this.LOC_START_NAMEE= data.LOC_START_NAMEE;
-      this.LOC_END_NAMEE= data.LOC_END_NAMEE;
+    this.ROUTE_NAMEE= data.ROUTE_NAMEE;
+    this.FULL_FARE= data.FULL_FARE;
+    this.LOC_START_NAMEE= data.LOC_START_NAMEE;
+    this.LOC_END_NAMEE= data.LOC_END_NAMEE;
     console.log(data.routeID);
     this.center={lat: 22.350785004266545, lng: 114.10568707938761};
     //HTTP
@@ -124,7 +128,7 @@ export class EditDialogComponent implements OnInit {
                 }
             );
           }
-        },  
+        },
         res => {  // anonymous function
           console.log("Server error: " + res);
           alert("No information found. Please enter again.");
@@ -143,7 +147,7 @@ export class EditDialogComponent implements OnInit {
 
   pop(STOP_SEQ:string){
       const index = Number(STOP_SEQ);
-    
+
       console.log(this.markers)
       console.log(  this.markers[index-1]["position"])
 
@@ -180,7 +184,7 @@ export class EditDialogComponent implements OnInit {
     zoom: 18,
     streetViewControl: false,
   });
-  
+
   // We get the map's default panorama and set up some defaults.
   // Note that we don't yet set it visible.
   this.panorama = map.getStreetView(); // TODO fix type
@@ -204,8 +208,38 @@ export class EditDialogComponent implements OnInit {
   document.getElementById("map")!.style.display="none"
 
    console.log(this.streetView)
-  
+
   }
+
+
+  editFormDialog(){
+    const dialogRef=this.dialog.open(EditFormComponent,{data:{
+    routeID:this.routeID,
+    ROUTE_NAMEE:this.ROUTE_NAMEE,
+    FULL_FARE:this.FULL_FARE,
+    LOC_START_NAMEE:this.LOC_START_NAMEE,
+    LOC_END_NAMEE:this.LOC_END_NAMEE
+
+  },
+  panelClass: 'custom-dialog-container',
+  });
+    dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    console.log(`Dialog result: ${result}`); // Pizza!
+     this.ROUTE_NAMEE= result.ROUTE_NAMEE
+     this.FULL_FARE= result.FULL_FARE
+     this.LOC_START_NAMEE= result.LOC_START_NAMEE
+     this.LOC_END_NAMEE= result.LOC_END_NAMEE
+      // this.dialogRef.close(this.routeID);
+
+  });
+
+}
+
+
+
+
+
 
 
 }

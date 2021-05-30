@@ -1,0 +1,63 @@
+<div class='container'>
+  <div class='panel'>
+    <div class='front'>
+      <h1 style=" font-weight:bold;font-size: 34px;font-family:Hiragino Sans GB, MicroSoft YaHei;  text-align: center; padding-top: 15px;color: rgb(0, 0, 0);
+      ">Edit Bus Route</h1>
+      <div class='frontForm form-group'>
+        <form [formGroup]="createBusForm" (ngSubmit)="onSubmit(createBusForm.value)" class="ui form">
+          <!-- <div class="inputBox form-group" style="display: inline-flex; ">
+            <label for="routeNumber">Route Number</label>
+            <input type="text" id="routeNumber" placeholder="" formControlName="routeNumber">
+          </div> -->
+
+          <!-- <div class="inputBox form-group" style="display: inline-flex; margin-top:10px;">
+            <input formControlName="routeNumber" type="text" name="routeId" #routeId id="routeId" value=""
+              required="required" autocomplete="off" />
+            <label>Route ID.</label>
+            <div class="bottom-line"></div>
+          </div> -->
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <input formControlName="busName" type="text" name="busName" #end id="busName" value="" required="required"
+              autocomplete="off" />
+            <label>Bus Name</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <input formControlName="fare" type="text" name="fare" #end id="fare" value="" required="required"
+              autocomplete="off" />
+            <label>Fare</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <input formControlName="startPoint" type="text" name="start" #start id="start" value="" required="required"
+              autocomplete="off" />
+            <label>Start Location</label>
+            <div class="bottom-line"></div>
+          </div>
+
+          <div class="inputBox form-group" style="display: inline-flex; ">
+            <input formControlName="endPoint" type="text" name="end" #end id="end" required="required"
+              autocomplete="off" />
+            <label>End Location</label>
+            <div class="bottom-line"></div>
+          </div>
+
+
+
+
+          <div class="arrow-icon" (click)="onSubmit(createBusForm.value)">
+            <i class="ion-ios-create" style="font-size: 25pt; color: black;"></i>
+                   </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>

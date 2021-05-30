@@ -18,6 +18,7 @@ export class FlipCardComponent implements OnInit {
   serverData: Object | null;
   serverDataArr: any;
   url: string;
+  test = "aaaaa";
   objectKeys = Object.keys;
 
 
@@ -129,8 +130,6 @@ export class FlipCardComponent implements OnInit {
         alert("No information found. Please enter again.");
       }
     );
-
-
   }
 
   @Output() deleteEvent = new EventEmitter<BusRecord>();
@@ -171,7 +170,7 @@ export class FlipCardComponent implements OnInit {
         console.log("Server error: " + res);
       }
     );
-    this.dialog.open(EditDialogComponent,{data:{
+    const dialogRef=this.dialog.open(EditDialogComponent,{data:{
       routeID:ROUTE_ID,
       ROUTE_NAMEE:ROUTE_NAMEE,
       FULL_FARE:FULL_FARE,
@@ -180,8 +179,12 @@ export class FlipCardComponent implements OnInit {
     },height: '700px',
     width: '900px',
     panelClass: 'custom-dialog-container',
+  });dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    console.log(`Dialog result: ${result}`); // Pizza!\
+    this.back()
   });
-
+    
   }
 
 
@@ -194,12 +197,11 @@ export class FlipCardComponent implements OnInit {
   });
       dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-  console.log(`Dialog result: ${result}`); // Pizza!
+      console.log(`Dialog result: ${result}`); // Pizza!
       result = result.toString();
       if(result!="cancel"){
         this.back();
       }
-      //this.back();
     });
 
 

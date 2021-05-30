@@ -46,21 +46,21 @@
     width: 100%;
     border: 1px solid rgb(150, 150, 150);
   }
-  
+
   .table tr {
     line-height: 28px;
     text-align: right;
   }
-  
-  
-  
+
+
+
   th{
     color: rgb(255, 222, 115);
     text-align: center;
 
   }
-  
-  
+
+
   tr:hover{
     background-color: #b6b6b6ec;
   }
@@ -112,4 +112,8 @@ body {
 #floating-panel {
   margin-left: -100px;
 } /* 始终显式设置映射高度，以定义包含映射的 div * 元素的大小。*/
-# map { height: 100% ; }/* 可选: 使示例页面填充窗口。*/
+#map { height: 100% ; }/* 可选: 使示例页面填充窗口。*/
+
+.edit:hover{
+  color: #999;
+}
