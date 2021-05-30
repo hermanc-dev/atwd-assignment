@@ -191,6 +191,8 @@ export class FlipCardComponent implements OnInit {
   deleteDialog(ROUTE_ID:string){
       const dialogRef=this.dialog.open(ConfirmDialogComponent,{data:{
       routeID:ROUTE_ID,
+      msg: "Do you want to delete Route: ",
+      action: "DELETE",
     },height: '160px',
     width: '300px',
     panelClass: 'custom-dialog-container',

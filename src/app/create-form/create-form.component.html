@@ -52,9 +52,11 @@
             <label>End Location</label>
             <div class="bottom-line"></div>
           </div>
-
-
-
+            <div class="reset-icon" >
+                <!-- <i class="ion-ios-refresh" (click)="routeId.value='';busNo.value='';start.value=''; stop.value='' ; end.value=''; "></i> -->
+                <button type="reset" style="background-color: transparent;border: 0;outline: none; width: 50px;"><i style="font-size: 20px; color: #fff;"  class="ion-ios-refresh"></i></button>
+              </div>
+          <!-- <div class="arrow-icon" (click)="createDialog()"> -->
 
           <div class="arrow-icon" (click)="onSubmit(createBusForm.value)">
             <i class="ion-md-add" style="font-size: 25pt;"></i>
@@ -63,9 +65,11 @@
 
         </form>
 
-        <div>
-          {{ serverData | json }}
-        </div>
+
+
+                <h3 style=" font-weight:bold;font-size: 34px;font-family:Hiragino Sans GB, MicroSoft YaHei;  text-align: center; padding-top: 20px;color: rgb(255, 255, 255);
+      ">  {{msg}}</h3>
+
       </div>
 
     </div>

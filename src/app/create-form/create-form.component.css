@@ -227,3 +227,24 @@ tr:hover{
 	width: 100%;
   backface-visibility: hidden;
 }
+
+  .reset-icon{
+    backface-visibility: hidden;
+    position: absolute;
+    right: 30px;
+    bottom:30px;
+    opacity: 1;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+	  right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    border: 0px solid	rgba(255, 255, 255, 0.925);
+    color: rgba(255, 255, 255, 0.952);
+  }
+

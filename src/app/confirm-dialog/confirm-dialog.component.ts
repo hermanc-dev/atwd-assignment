@@ -15,12 +15,18 @@ export class ConfirmDialogComponent implements OnInit {
   url: string;
   ROUTE_ID:string
   test:string="aaa";
+  action:string;
+  msg:string;
+
+
+
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,@Inject(MAT_DIALOG_DATA) private data: any,  http: HttpClient) { 
     this.ROUTE_ID = data.routeID;
     this.http = http;
     this.serverData = null;
     this.url = "";
-
+    this.msg =data.msg;
+    this.action = data.action;
   }
 
   ngOnInit(): void {
@@ -30,23 +36,30 @@ export class ConfirmDialogComponent implements OnInit {
     this.dialogRef.close("cancel");
   }
 
-  deleteRoute(){
-    this.url= "http://localhost/bus/route/"+this.ROUTE_ID;
-    console.log('url', this.url);
-    this.http.delete<any>(
-      this.url
-    )
-    .subscribe(
-      res => {  // anonymous function
-        console.log("Server return: " + JSON.stringify(res));
-            this.dialogRef.close("deleted");
-      },
-      res => {  // anonymous function
-        console.log("Server error: " + res);
-      }
-    );
-  }
+  confirm(){
 
+
+    if(this.action=="DELETE"){
+      this.url= "http://localhost/bus/route/"+this.ROUTE_ID;
+      console.log('url', this.url);
+      this.http.delete<any>(
+        this.url
+      )
+      .subscribe(
+        res => {  // anonymous function
+          console.log("Server return: " + JSON.stringify(res));
+              this.dialogRef.close("deleted");
+        },
+        res => {  // anonymous function
+          console.log("Server error: " + res);
+        }
+      );
+    }
+    if(this.action=="CREATE"){
+          this.dialogRef.close("confirm");
+    }
+
+  }
 
 
 }
