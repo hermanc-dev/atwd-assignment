@@ -114,7 +114,7 @@ table tr td {
 }
 
 .inputBox {
-width: 400px;
+width: 450px;
 position: relative;
 margin-top: 40px;
 backface-visibility: hidden;
@@ -248,3 +248,9 @@ tr:hover{
     color: rgba(255, 255, 255, 0.952);
   }
 
+.iconx{
+    float: right;
+    display: inline-block;
+    font-size:30px;
+    color: rgb(255, 222, 115);
+}
